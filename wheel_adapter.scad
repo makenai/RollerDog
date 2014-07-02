@@ -1,13 +1,13 @@
 // RollerDog Wheel Adapters
 
 arm_length=20;
-nut_size=5;
-bolt_diameter=3;
+nut_size=7.25;
+bolt_diameter=4.25;
 cube_size=32;
-top_lip_height=8;
+top_lip_height=9;
 lip_width=10;
-wheel_bolt_diameter=8;
-bearing_diameter=22;
+wheel_bolt_diameter=18;
+bearing_diameter=22.25;
 edge_room=3;
 
 module nut() {
@@ -54,10 +54,14 @@ difference() {
 			cylinder(d=bolt_diameter,h=20,center=true);
 	// Pipe Hole
 	pvc_pipe();
-	// Bearing Hole
+	// Bearing Holes
 	translate([0,-cube_size/2,-arm_length-cube_size/2])
 		rotate([90,0,0]) 
 		bearing();
+	translate([0,0,-arm_length-cube_size/2])
+		rotate([90,0,0]) 
+		bearing();
+	// Bearing Inner Hole
 	translate([0,0,-arm_length-cube_size/2])
 		rotate([90,0,0]) 
 			cylinder(d=wheel_bolt_diameter,h=60,center=true);
