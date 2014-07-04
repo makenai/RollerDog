@@ -26,6 +26,8 @@ module bearing() {
 	cylinder(d=bearing_diameter,h=7,center=true);
 }
 
+translate([0,0,cube_size/2])
+rotate([0,90,0])
 difference() {
 	union() {
 		rotate([00,90,0])
@@ -43,7 +45,7 @@ difference() {
 	}
 	// Gap
 	translate([0,0,15])
-		cube([35,1,20],center=true);
+		cube([35,2,20],center=true);
 	// Nut Hole
 	translate([0,5,cube_size/2+top_lip_height/2])
 		rotate([0,0,90]) 
