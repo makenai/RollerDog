@@ -1,14 +1,15 @@
 // RollerDog Wheel Adapters
 
 arm_length=20;
-nut_size=7.25;
+nut_size=7.5;
 bolt_diameter=4.25;
 cube_size=32;
 top_lip_height=9;
 lip_width=10;
 wheel_bolt_diameter=18;
-bearing_diameter=22.25;
+bearing_diameter=22.5;
 edge_room=3;
+pipe_diameter=21.5;
 
 module nut() {
 	intersection_for (i=[0,45]) {
@@ -19,7 +20,7 @@ module nut() {
 
 module pvc_pipe() {
 	rotate([0,90,0])
-		cylinder(d=21,h=40,center=true);
+		cylinder(d=pipe_diameter,h=40,center=true);
 }
 
 module bearing() {
