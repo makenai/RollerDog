@@ -9,7 +9,7 @@ lip_width=10;
 wheel_bolt_diameter=18;
 bearing_diameter=22.5;
 edge_room=3;
-pipe_diameter=22.5;
+pipe_diameter=22;
 
 module nut() {
 	intersection_for (i=[0,45]) {
@@ -27,47 +27,51 @@ module bearing() {
 	cylinder(d=bearing_diameter,h=10,center=true);
 }
 
-translate([0,0,cube_size/2])
-rotate([0,90,0])
-difference() {
-	union() {
-		rotate([00,90,0])
-			cylinder(d=cube_size,h=cube_size,center=true);
-		translate([0,0,(top_lip_height+cube_size/2)/2])
-			cube([cube_size,lip_width,top_lip_height+cube_size/2],center=true);
-		translate([0,-cube_size/4,(-arm_length-cube_size/2)/2])
-			cube([cube_size,cube_size/2,arm_length+cube_size/2],center=true);
-		translate([cube_size/4,-cube_size/4,-arm_length-cube_size/2])
-			cube([cube_size/2,cube_size/2,cube_size],center=true);
-		translate([0,-cube_size/4,-arm_length-cube_size/2])
-			rotate([90,0,0])
-			cylinder(d=cube_size,h=cube_size/2,center=true);
-
+module wheel_adapter() {
+	translate([0,0,cube_size/2])
+	rotate([0,90,0])
+	difference() {
+		union() {
+			rotate([00,90,0])
+				cylinder(d=cube_size,h=cube_size,center=true);
+			translate([0,0,(top_lip_height+cube_size/2)/2])
+				cube([cube_size,lip_width,top_lip_height+cube_size/2],center=true);
+			translate([0,-cube_size/4,(-arm_length-cube_size/2)/2])
+				cube([cube_size,cube_size/2,arm_length+cube_size/2],center=true);
+			translate([cube_size/4,-cube_size/4,-arm_length-cube_size/2])
+				cube([cube_size/2,cube_size/2,cube_size],center=true);
+			translate([0,-cube_size/4,-arm_length-cube_size/2])
+				rotate([90,0,0])
+				cylinder(d=cube_size,h=cube_size/2,center=true);
+		}
+		// Gap
+		translate([0,0,20])
+			cube([35,2,40],center=true);
+		// Nut Hole
+		translate([0,5,cube_size/2+top_lip_height/2-0.5])
+			rotate([0,0,90]) 
+				nut();
+		// Bolt Hole
+		translate([0,0,cube_size/2+top_lip_height/2-0.5])
+			rotate([90,0,0]) 
+				cylinder(d=bolt_diameter,h=20,center=true);
+		// Pipe Hole
+		pvc_pipe();
+		// Bearing Holes
+		translate([0,-cube_size/2,-arm_length-cube_size/2])
+			rotate([90,0,0]) 
+			bearing();
+		translate([0,0,-arm_length-cube_size/2])
+			rotate([90,0,0]) 
+			bearing();
+		// Bearing Inner Hole
+		translate([0,0,-arm_length-cube_size/2])
+			rotate([90,0,0]) 
+				cylinder(d=wheel_bolt_diameter,h=60,center=true);	
 	}
-	// Gap
-	translate([0,0,20])
-		cube([35,2,40],center=true);
-	// Nut Hole
-	translate([0,5,cube_size/2+top_lip_height/2-0.5])
-		rotate([0,0,90]) 
-			nut();
-	// Bolt Hole
-	translate([0,0,cube_size/2+top_lip_height/2-0.5])
-		rotate([90,0,0]) 
-			cylinder(d=bolt_diameter,h=20,center=true);
-	// Pipe Hole
-	pvc_pipe();
-	// Bearing Holes
-	translate([0,-cube_size/2,-arm_length-cube_size/2])
-		rotate([90,0,0]) 
-		bearing();
-	translate([0,0,-arm_length-cube_size/2])
-		rotate([90,0,0]) 
-		bearing();
-	// Bearing Inner Hole
-	translate([0,0,-arm_length-cube_size/2])
-		rotate([90,0,0]) 
-			cylinder(d=wheel_bolt_diameter,h=60,center=true);
-	
 }
+
+mirror([1,0,0])
+	wheel_adapter();
+
 
