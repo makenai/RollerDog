@@ -2,14 +2,14 @@
 
 arm_length=20;
 nut_size=7.5;
-bolt_diameter=4.25;
+bolt_diameter=4.5;
 cube_size=32;
-top_lip_height=9;
+top_lip_height=11;
 lip_width=10;
 wheel_bolt_diameter=18;
 bearing_diameter=22.5;
 edge_room=3;
-pipe_diameter=21.5;
+pipe_diameter=22.5;
 
 module nut() {
 	intersection_for (i=[0,45]) {
@@ -24,7 +24,7 @@ module pvc_pipe() {
 }
 
 module bearing() {
-	cylinder(d=bearing_diameter,h=7,center=true);
+	cylinder(d=bearing_diameter,h=10,center=true);
 }
 
 translate([0,0,cube_size/2])
@@ -45,14 +45,14 @@ difference() {
 
 	}
 	// Gap
-	translate([0,0,15])
-		cube([35,2,20],center=true);
+	translate([0,0,20])
+		cube([35,2,40],center=true);
 	// Nut Hole
-	translate([0,5,cube_size/2+top_lip_height/2])
+	translate([0,5,cube_size/2+top_lip_height/2-0.5])
 		rotate([0,0,90]) 
 			nut();
 	// Bolt Hole
-	translate([0,0,cube_size/2+top_lip_height/2])
+	translate([0,0,cube_size/2+top_lip_height/2-0.5])
 		rotate([90,0,0]) 
 			cylinder(d=bolt_diameter,h=20,center=true);
 	// Pipe Hole
