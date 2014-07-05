@@ -1,8 +1,8 @@
 // RollerDog Wheel Adapters
 
 arm_length=20;
-nut_size=7.5;
-bolt_diameter=4.5;
+nut_size=7.75;
+bolt_diameter=4.75;
 cube_size=32;
 top_lip_height=11;
 lip_width=10;
