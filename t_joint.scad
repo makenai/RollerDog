@@ -20,7 +20,7 @@ module nut() {
 
 module pvc_pipe() {
 	rotate([0,90,0])
-		cylinder(d=pipe_diameter,h=40,center=true);
+		cylinder(d=pipe_diameter,h=80,center=true);
 }
 
 module bearing() {
@@ -30,8 +30,12 @@ module bearing() {
 
 module tube() {
 	difference() {
-		rotate([00,90,0])
-			cylinder(d=cube_size,h=cube_size,center=true);
+		union() {
+			rotate([00,90,0])
+				cylinder(d=cube_size,h=cube_size*1.5,center=true);
+			translate([0,0,cube_size/4])
+				cube([cube_size*1.5,cube_size,cube_size/2],center=true);
+		}
 		pvc_pipe();
 	}
 }
@@ -43,7 +47,9 @@ module clamp() {
 				cylinder(d=cube_size,h=cube_size,center=true);
 			translate([0,0,(top_lip_height+cube_size/2)/2])
 				cube([cube_size,lip_width,top_lip_height+cube_size/2],center=true);
-			translate([0,0,-cube_size/2])
+			translate([0,0,-cube_size/4])
+				cube([cube_size,cube_size,cube_size/2],center=true);
+			translate([0,0,-cube_size*0.75])
 			rotate([0,90,0])
 				tube();
 		}
@@ -68,8 +74,6 @@ module t_joint() {
 	translate([0,0,cube_size/2])
 	rotate([0,90,0])
 		clamp();
-	translate([-cube_size,0,cube_size/2])
-		tube();
 }
 
 t_joint();
