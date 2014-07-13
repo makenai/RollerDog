@@ -1,6 +1,6 @@
 // RollerDog Wheel Adapters
 
-arm_length=20;
+arm_length=15;
 nut_size=7.75;
 bolt_diameter=4.75;
 cube_size=32;
@@ -48,7 +48,7 @@ module wheel_adapter() {
 		translate([0,0,20])
 			cube([35,2,40],center=true);
 		// Nut Hole
-		translate([0,5,cube_size/2+top_lip_height/2-0.5])
+		translate([0,-5,cube_size/2+top_lip_height/2-0.5])
 			rotate([0,0,90]) 
 				nut();
 		// Bolt Hole
