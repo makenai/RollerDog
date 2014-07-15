@@ -1,4 +1,4 @@
-// RollerDog Wheel Adapters
+// RollerDog T-Joint
 
 arm_length=20;
 nut_size=7.75;

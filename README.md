@@ -9,6 +9,8 @@ Currently needed:
 - 1/2" PVC pipe
 - PVC elbows
 - 3D printer (or a friend with one)
+- M8 bolts and nuts (for the wheel)
+- M4 bolts and nuts (to clamp pipes)
 
 Stuff provided:
 
