@@ -1,6 +1,6 @@
 // Wheel Hubcap
 
-outside_dimension = 42;
+outside_dimension = 42.3;
 inside_dimension = 16;
 
 module hubcap() {
@@ -10,8 +10,8 @@ module hubcap() {
 				cylinder(d=outside_dimension-5,h=2,center=true);
 			cylinder(d=outside_dimension,h=10,center=true);
 		}
-		translate([0,0,-3])
-			cylinder(d=inside_dimension,h=6,center=true);
+		translate([0,0,-1.5])
+			cylinder(d=inside_dimension,h=9,center=true);
 	}
 }
 
