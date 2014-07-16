@@ -15,4 +15,10 @@ module hubcap() {
 	}
 }
 
+difference() {
 hubcap();
+translate([-15,-15,6])
+	linear_extrude(height=2)
+	scale([8,8,1])
+	import("t.dxf");
+}
