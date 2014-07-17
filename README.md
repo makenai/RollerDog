@@ -4,7 +4,7 @@ At Zappos we have a project known as Wishez where people can wish for something 
 
 Currently needed:
 
-- Wheels of some sort
+- Wheels of some sort (I used upcycled stroller wheels)
 - Roller blade bearings (608 size)
 - 1/2" PVC pipe
 - PVC elbows
