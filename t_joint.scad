@@ -4,12 +4,13 @@ arm_length=20;
 nut_size=7.75;
 bolt_diameter=4.75;
 cube_size=32;
-top_lip_height=11;
+top_lip_height=8;
 lip_width=10;
 wheel_bolt_diameter=18;
 bearing_diameter=22.5;
 edge_room=3;
-pipe_diameter=22;
+pipe_diameter=21.5;
+tooth_count = 24;
 
 module nut() {
 	intersection_for (i=[0,45]) {
@@ -20,7 +21,11 @@ module nut() {
 
 module pvc_pipe() {
 	rotate([0,90,0])
-		cylinder(d=pipe_diameter,h=80,center=true);
+		cylinder(d=pipe_diameter,h=40,center=true);
+	for (i=[0:tooth_count/2]) {
+		rotate([i*(360/tooth_count),0,0])
+		cube([40,pipe_diameter+1,1],center=true);
+	}
 }
 
 module bearing() {
