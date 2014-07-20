@@ -21,10 +21,10 @@ module nut() {
 
 module pvc_pipe() {
 	rotate([0,90,0])
-		cylinder(d=pipe_diameter,h=40,center=true);
+		cylinder(d=pipe_diameter,h=80,center=true);
 	for (i=[0:tooth_count/2]) {
 		rotate([i*(360/tooth_count),0,0])
-		cube([40,pipe_diameter+1,1],center=true);
+		cube([80,pipe_diameter+1,1],center=true);
 	}
 }
 
