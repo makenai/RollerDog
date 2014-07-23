@@ -20,3 +20,5 @@ wheel_adapter.scad - Clamps on to PVC pipe and takes two bearings and a wheel ca
 t_joint.scad - Clamps a PVC pipe perpendicular to another PVC pipe. This is similar to a T intersection made of PVC but doesn't require two cut sections so it can be adjusted easily.
 
 hubcap.scad - Probably not of used to most people without modification. These are little hubcaps for the upcycled stroller wheels I am using. They are monogrammed with a 't' for Tootsie, the dog the wheelchair is being made for.
+
+endcap.scad - Attached the harness to the pipe structure using zip ties.
